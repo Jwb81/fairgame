@@ -111,6 +111,7 @@ class Amazon:
         shipping_bypass=False,
         alt_offers=False,
         wait_on_captcha_fail=False,
+        config_path="",
     ):
         self.notification_handler = notification_handler
         self.asin_list = []
@@ -143,6 +144,7 @@ class Amazon:
         self.unknown_title_notification_sent = False
         self.alt_offers = alt_offers
         self.wait_on_captcha_fail = wait_on_captcha_fail
+        self.config_path = config_path
 
         presence.enabled = not disable_presence
 
@@ -171,8 +173,8 @@ class Amazon:
             except:
                 raise
 
-        if os.path.exists(AUTOBUY_CONFIG_PATH):
-            with open(AUTOBUY_CONFIG_PATH) as json_file:
+        if os.path.exists(self.config_path):
+            with open(self.config_path) as json_file:
                 try:
                     config = json.load(json_file)
                     self.asin_groups = int(config["asin_groups"])

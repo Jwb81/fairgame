@@ -198,6 +198,10 @@ def main():
     default=False,
     help="Wait if captcha could not be solved. Only occurs if enters captcha handler during checkout.",
 )
+@click.option(
+    "--config-filename",
+    default="amazon_config.json"
+)
 @notify_on_crash
 def amazon(
     no_image,
@@ -219,7 +223,10 @@ def amazon(
     clean_credentials,
     alt_offers,
     captcha_wait,
+    config_filename
 ):
+    config_path = "config/" + config_filename
+
     notification_handler.sound_enabled = not disable_sound
     if not notification_handler.sound_enabled:
         log.info("Local sounds have been disabled.")
@@ -252,6 +259,7 @@ def amazon(
         shipping_bypass=shipping_bypass,
         alt_offers=alt_offers,
         wait_on_captcha_fail=captcha_wait,
+        config_path=config_path,
     )
     try:
         amzn_obj.run(delay=delay, test=test)

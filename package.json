@@ -1,0 +1,23 @@
+{
+  "name": "fairgame",
+  "version": "1.0.0",
+  "description": "Amazon purchasing bot",
+  "main": "run-bots.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node js/run-bots.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jwb81/fairgame.git"
+  },
+  "author": "Jason Barnett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jwb81/fairgame/issues"
+  },
+  "homepage": "https://github.com/Jwb81/fairgame#readme"
+}

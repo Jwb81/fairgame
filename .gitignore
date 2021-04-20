@@ -12,6 +12,8 @@
 .vscode/
 /config/*.json
 /config/apprise.conf
+/config/temp
+/config/rtx*
 Pipfile.lock
 __pycache__/
 build/
